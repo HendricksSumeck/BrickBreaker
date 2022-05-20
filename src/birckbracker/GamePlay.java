@@ -31,7 +31,11 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 
     private MapGenerator mapPlay;
 
+    private final String font  = "serif";
     private final String mensagemStart  = "Press Enter/Left/Right Arrow to start the game!";
+    private final String mensagemRestart  = "Press Enter to Restart..";
+    private final String mensagemScore  = "Score: ";
+
 
     public GamePlay() {
         mapPlay = new MapGenerator(4, 10);
@@ -39,7 +43,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
         addKeyListener(this);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
-        int delay = 9;
+        var delay = 9;
         timer = new Timer(delay, this);
         timer.start();
     }
@@ -61,8 +65,8 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 
         //score
         graphics.setColor(Color.white);
-        graphics.setFont(new Font("serif", Font.BOLD, 22));
-        graphics.drawString("Score: " + score + "/200", 490, 30);
+        graphics.setFont(new Font(font, Font.BOLD, 22));
+        graphics.drawString(mensagemScore + score + "/200", 490, 30);
 
         //paddle
         graphics.setColor(Color.green);
@@ -90,17 +94,17 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
             graphics.fillOval(ballPosX, ballPosY, 23, 23);
 
             graphics.setColor(Color.RED);
-            graphics.setFont(new Font("serif", Font.BOLD, 30));
+            graphics.setFont(new Font(font, Font.BOLD, 30));
             graphics.drawString(x + score, 200, 300);
 
             graphics.setColor(Color.YELLOW);
-            graphics.setFont(new Font("serif", Font.BOLD, 20));
-            graphics.drawString("Press Enter to Restart..", 230, 330);
+            graphics.setFont(new Font(font, Font.BOLD, 20));
+            graphics.drawString(mensagemRestart, 230, 330);
 
             //above score hiding
             graphics.setColor(Color.black);
-            graphics.setFont(new Font("serif", Font.BOLD, 22));
-            graphics.drawString("Score: " + score + "/200", 490, 30);
+            graphics.setFont(new Font(font, Font.BOLD, 22));
+            graphics.drawString(mensagemScore + score + "/200", 490, 30);
 
             //hide remains bricks
             mapPlay.draw((Graphics2D) graphics, Color.BLACK);
