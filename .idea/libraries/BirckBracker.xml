@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="BirckBracker">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/BirckBracker.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
