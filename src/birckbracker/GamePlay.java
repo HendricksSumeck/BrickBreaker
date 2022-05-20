@@ -20,8 +20,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 
     private int totalBricks = 40;
 
-    private Timer timer;
-    private int delay = 9;
+    private final Timer timer;
 
     private int playerX = 300;
 
@@ -32,7 +31,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 
     private MapGenerator mapPlay;
 
-    private String mensagemStart  = "Press Enter/Left/Right Arrow to start the game!";
+    private final String mensagemStart  = "Press Enter/Left/Right Arrow to start the game!";
 
     public GamePlay() {
         mapPlay = new MapGenerator(4, 10);
@@ -40,6 +39,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
         addKeyListener(this);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
+        int delay = 9;
         timer = new Timer(delay, this);
         timer.start();
     }
@@ -133,7 +133,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
     }
 
     private void startGameplay(Graphics graphics) {
-        if (play == false) {
+        if (!play) {
             //game start message
             graphics.setColor(Color.YELLOW);
             graphics.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 25));
@@ -255,7 +255,6 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
     {
         var random = new Random();
         int max = -1;
-        int randomNumber = min + random.nextInt(max - min + 1);
-        return randomNumber;
+        return min + random.nextInt(max - min + 1);
     }
 }
