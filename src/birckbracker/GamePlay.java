@@ -211,14 +211,13 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
             for (int i = 0; i < mapPlay.map.length; i++) {
                 for (int j = 0; j < mapPlay.map[0].length; j++) {
                     if (mapPlay.map[i][j] > 0) {
-                        int brickX = j * mapPlay.brickWidth + 80;
-                        int brickY = i * mapPlay.brickHeight + 50;
-                        int brickWidth = mapPlay.brickWidth;
-                        int brickHeight = mapPlay.brickHeight;
+                        var brickX = j * mapPlay.brickWidth + 80;
+                        var brickY = i * mapPlay.brickHeight + 50;
+                        var brickWidth = mapPlay.brickWidth;
+                        var brickHeight = mapPlay.brickHeight;
 
-                        Rectangle rect = new Rectangle(brickX, brickY, brickWidth, brickHeight);
-                        Rectangle ballRect = new Rectangle(ballPosX, ballPosY, 20, 20);
-                        Rectangle brickRect = rect;
+                        var brickRect = new Rectangle(brickX, brickY, brickWidth, brickHeight);
+                        var ballRect = new Rectangle(ballPosX, ballPosY, 20, 20);
 
                         if (ballRect.intersects(brickRect)) {
                             mapPlay.setBrickValue(0, i, j);
