@@ -4,7 +4,7 @@
 ![Exemplo do jogo desenvolvido](src/images/gameexample.png)
 
 
-<p>Trabalho desenvolvido na disciplina de Manutenção De Software pelos Hendrick Sumeck e Messias Junior. </p>
+<p>Trabalho desenvolvido na disciplina de Manutenção De Software pelos alunos Hendrick Sumeck e Messias Junior. </p>
 
 ## Repositório original:
 https://github.com/zakaria5729/brick-breaker-game
