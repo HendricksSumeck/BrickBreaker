@@ -32,9 +32,9 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
     private MapGenerator mapPlay;
 
     private final String font  = "serif";
-    private final String mensagemStart  = "Press Enter/Left/Right Arrow to start the game!";
-    private final String mensagemRestart  = "Press Enter to Restart..";
-    private final String mensagemScore  = "Score: ";
+    private final String mensagemStart  = "Pressione enter ou as setas direita/esquerda para começar o jogo.";
+    private final String mensagemRestart  = "Pressione Enter para recomeçar.";
+    private final String mensagemScore  = "Pontos: ";
 
 
     public GamePlay() {
@@ -69,14 +69,14 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
         graphics.drawString(mensagemScore + score + "/200", 490, 30);
 
         //paddle
-        graphics.setColor(Color.green);
+        graphics.setColor(Color.white);
         graphics.fillRect(playerX, 550, 100, 8);
 
         startGameplay(graphics);
 
         ballColor(graphics);
 
-        wirOrLose(totalBricks <= 0, graphics, "You Win! Score: ");
+        wirOrLose(totalBricks <= 0, graphics, "Parabéns! Você ganhou! Pontos: ");
 
         wirOrLose(ballPosY > 570, graphics, "Game over! Score: ");
 
