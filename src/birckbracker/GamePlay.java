@@ -76,7 +76,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 
         ballColor(graphics);
 
-        wirOrLose(totalBricks <= 0, graphics, "Parabéns! Você ganhou! Pontos: ");
+        wirOrLose(totalBricks <= 0, graphics, "Parabéns, você ganhou! Pontos: ");
 
         wirOrLose(ballPosY > 570, graphics, "Game over! Score: ");
 
