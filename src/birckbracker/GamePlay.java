@@ -32,7 +32,8 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
     private MapGenerator mapPlay;
 
     private final String font  = "serif";
-    private final String mensagemStart  = "Pressione enter ou as setas direita/esquerda para começar o jogo.";
+    private final String mensagemStart  = "Pressione enter ou as setas direita/esquerda";
+    private final String mensagemStart2  = "para começar o jogo.";
     private final String mensagemRestart  = "Pressione Enter para recomeçar.";
     private final String mensagemScore  = "Pontos: ";
 
@@ -78,7 +79,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 
         wirOrLose(totalBricks <= 0, graphics, "Parabéns, você ganhou! Pontos: ");
 
-        wirOrLose(ballPosY > 570, graphics, "Game over! Score: ");
+        wirOrLose(ballPosY > 570, graphics, "Fim de jogo! Pontos: ");
 
         graphics.dispose();
     }
@@ -117,6 +118,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
             graphics.setColor(Color.BLACK);
             graphics.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 25));
             graphics.drawString(mensagemStart, 90, 350);
+            graphics.drawString(mensagemStart2, 90, 370);
         }
     }
 
@@ -142,6 +144,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
             graphics.setColor(Color.YELLOW);
             graphics.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 25));
             graphics.drawString(mensagemStart, 90, 350);
+            graphics.drawString(mensagemStart2, 90, 380);
 
             //ball hiding
             graphics.setColor(Color.black);
