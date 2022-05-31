@@ -64,11 +64,6 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
         graphics.fillRect(0, 0, 692, 3);
         graphics.fillRect(691, 1, 3, 592);
 
-        //score
-        graphics.setColor(Color.white);
-        graphics.setFont(new Font(font, Font.BOLD, 22));
-        graphics.drawString(mensagemScore + score + "/200", 490, 30);
-
         //paddle
         graphics.setColor(Color.white);
         graphics.fillRect(playerX, 550, 100, 8);
@@ -84,6 +79,15 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
         graphics.dispose();
     }
 
+    public void score(Graphics graphics) {
+        graphics.setColor(Color.white);
+        graphics.setFont(new Font(font, Font.BOLD, 22));
+        graphics.drawString(mensagemScore + score + "/200", 490, 30);
+    }
+
+    public void paddle(Graphics graphics) {
+        
+    }
     private void wirOrLose(boolean totalBricks, Graphics graphics, String x) {
         if (totalBricks) {
             play = false;
