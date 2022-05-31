@@ -1,5 +1,4 @@
 package birckbracker;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -15,6 +14,7 @@ import javax.swing.Timer;
 
 public class GamePlay extends JPanel implements KeyListener, ActionListener {
 
+    public StringMessage _stringMessage;
     private boolean play = false;
     public int score = 0;
 
@@ -31,14 +31,9 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 
     private MapGenerator mapPlay;
 
-    private final String font  = "serif";
-    private final String mensagemStart  = "Pressione enter ou as setas direita/esquerda";
-    private final String mensagemStart2  = "para começar o jogo.";
-    private final String mensagemRestart  = "Pressione Enter para recomeçar.";
-    private final String mensagemScore  = "Pontos: ";
-
-
     public GamePlay() {
+        _stringMessage = new StringMessage();
+
         mapPlay = new MapGenerator(4, 10);
 
         addKeyListener(this);
@@ -66,8 +61,8 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 
         //score
         graphics.setColor(Color.white);
-        graphics.setFont(new Font(font, Font.BOLD, 22));
-        graphics.drawString(mensagemScore + score + "/200", 490, 30);
+        graphics.setFont(new Font(_stringMessage.Font, Font.BOLD, 22));
+        graphics.drawString(_stringMessage.MensagemScore + score + "/200", 490, 30);
 
         //paddle
         graphics.setColor(Color.white);
@@ -77,9 +72,9 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 
         ballColor(graphics);
 
-        wirOrLose(totalBricks <= 0, graphics, "Parabéns, você ganhou! Pontos: ");
+        wirOrLose(totalBricks <= 0, graphics, _stringMessage.MensagemWin);
 
-        wirOrLose(ballPosY > 570, graphics, "Fim de jogo! Pontos: ");
+        wirOrLose(ballPosY > 570, graphics, _stringMessage.MensagemLose);
 
         graphics.dispose();
     }
@@ -95,17 +90,17 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
             graphics.fillOval(ballPosX, ballPosY, 23, 23);
 
             graphics.setColor(Color.RED);
-            graphics.setFont(new Font(font, Font.BOLD, 30));
+            graphics.setFont(new Font(_stringMessage.Font, Font.BOLD, 30));
             graphics.drawString(x + score, 200, 300);
 
             graphics.setColor(Color.YELLOW);
-            graphics.setFont(new Font(font, Font.BOLD, 20));
-            graphics.drawString(mensagemRestart, 230, 330);
+            graphics.setFont(new Font(_stringMessage.Font, Font.BOLD, 20));
+            graphics.drawString(_stringMessage.MensagemRestart, 230, 330);
 
             //above score hiding
             graphics.setColor(Color.black);
-            graphics.setFont(new Font(font, Font.BOLD, 22));
-            graphics.drawString(mensagemScore + score + "/200", 490, 30);
+            graphics.setFont(new Font(_stringMessage.Font, Font.BOLD, 22));
+            graphics.drawString(_stringMessage.MensagemScore + score + "/200", 490, 30);
 
             //hide remains bricks
             mapPlay.draw((Graphics2D) graphics, Color.BLACK);
@@ -117,8 +112,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
             //game start message
             graphics.setColor(Color.BLACK);
             graphics.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 25));
-            graphics.drawString(mensagemStart, 90, 350);
-            graphics.drawString(mensagemStart2, 90, 370);
+            graphics.drawString(_stringMessage.MensagemStart, 90, 350);
         }
     }
 
@@ -143,8 +137,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
             //game start message
             graphics.setColor(Color.YELLOW);
             graphics.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 25));
-            graphics.drawString(mensagemStart, 90, 350);
-            graphics.drawString(mensagemStart2, 90, 380);
+            graphics.drawString(_stringMessage.MensagemStart, 90, 350);
 
             //ball hiding
             graphics.setColor(Color.black);
