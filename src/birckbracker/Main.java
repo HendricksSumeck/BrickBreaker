@@ -3,7 +3,7 @@ package birckbracker;
 import javax.swing.JFrame;
 
 public class Main {
-    private static StringMessage _stringMessage = new StringMessage();
+    private static final StringMessage _stringMessage = new StringMessage();
 
     public static void main(String[] args) {
         var obj = new JFrame();
