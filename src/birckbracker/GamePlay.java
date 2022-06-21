@@ -15,6 +15,7 @@ import javax.swing.Timer;
 public class GamePlay extends JPanel implements KeyListener, ActionListener {
 
     public StringMessage _stringMessage;
+    private IntHelper _intHelper = new IntHelper();
     private boolean play = false;
     public int score = 0;
 
@@ -26,8 +27,8 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 
     private int ballPosX = 290;
     private int ballPosY = 350;
-    private int ballDirX = getRandomNumberFor(-3);
-    private int ballDirY = getRandomNumberFor(-5);
+    private int ballDirX = _intHelper.GetRandomNumberFor(-3);
+    private int ballDirY = _intHelper.GetRandomNumberFor(-5);
 
     private MapGenerator mapPlay;
 
@@ -176,8 +177,8 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
                 playerX = 310;
                 ballPosX = 290;
                 ballPosY = 350;
-                ballDirX = getRandomNumberFor(-5);
-                ballDirY = getRandomNumberFor(-3);
+                ballDirX = _intHelper.GetRandomNumberFor(-5);
+                ballDirY = _intHelper.GetRandomNumberFor(-3);
                 totalBricks = 40;
 
                 mapPlay = new MapGenerator(4, 10);
@@ -249,12 +250,5 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
             }
         }
         repaint();
-    }
-
-    public int getRandomNumberFor(int min) 
-    {
-        var random = new Random();
-        int max = -1;
-        return min + random.nextInt(max - min + 1);
     }
 }
