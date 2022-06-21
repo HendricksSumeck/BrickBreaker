@@ -8,14 +8,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.Random;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class GamePlay extends JPanel implements KeyListener, ActionListener {
 
-    private StringMessage _stringMessage = new StringMessage();
-    private IntHelper _intHelper = new IntHelper();
+    private final StringMessage _stringMessage = new StringMessage();
+    private final IntHelper _intHelper = new IntHelper();
     private boolean play = false;
     public int score = 0;
 
