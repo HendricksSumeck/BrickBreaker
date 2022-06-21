@@ -17,8 +17,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 
     private boolean play = false;
     public int score = 0;
-
-    private int totalBricks = 40;
+    
 
     private final Timer timer;
 
@@ -36,10 +35,14 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
     private final String mensagemStart2  = "para começar o jogo.";
     private final String mensagemRestart  = "Pressione Enter para recomeçar.";
     private final String mensagemScore  = "Pontos: ";
-
+    Random generator = new Random();
+    public int rows = generator.nextInt(10);
+    public int column = generator.nextInt(10);
+    public int totalBricks = column * rows;
 
     public GamePlay() {
-        mapPlay = new MapGenerator(4, 10);
+
+        mapPlay = new MapGenerator(rows, column);
 
         addKeyListener(this);
         setFocusable(true);
@@ -67,7 +70,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
         //score
         graphics.setColor(Color.white);
         graphics.setFont(new Font(font, Font.BOLD, 22));
-        graphics.drawString(mensagemScore + score + "/200", 490, 30);
+        
 
         //paddle
         graphics.setColor(Color.white);

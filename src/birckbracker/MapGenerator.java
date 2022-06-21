@@ -18,7 +18,7 @@ public class MapGenerator {
             }
         }
         brickWidth = 540 / col;
-        brickHeight = 150 / row;
+        brickHeight = 200 / row;
     }
 
     public void draw(Graphics2D graphics2d, Color colorName) {
