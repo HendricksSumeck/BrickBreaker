@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Random;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -17,8 +18,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
     private final IntHelper _intHelper = new IntHelper();
     private boolean play = false;
     public int score = 0;
-
-    private int totalBricks = 40;
+    
 
     private final Timer timer;
 
@@ -26,15 +26,18 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 
     private int ballPosX = 290;
     private int ballPosY = 350;
-    private int ballDirX = _intHelper.GetRandomNumberFor(-3);
-    private int ballDirY = _intHelper.GetRandomNumberFor(-5);
-
+    private int ballDirX = -9;
+    private int ballDirY = -15;
     private MapGenerator mapPlay;
 
+    Random generator = new Random();
+    public int rows = generator.nextInt(10);
+    public int column = generator.nextInt(10);
+    public int totalBricks = column * rows;
+    public int scorevalue = totalBricks * 5;
     public GamePlay() {
 
-        mapPlay = new MapGenerator(4, 10);
-
+        mapPlay = new MapGenerator(rows, column);
         addKeyListener(this);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
@@ -42,6 +45,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
         timer = new Timer(delay, this);
         timer.start();
     }
+    
 
     @Override
     public void paint(Graphics graphics) {
@@ -61,7 +65,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
         //score
         graphics.setColor(Color.white);
         graphics.setFont(new Font(_stringMessage.Font, Font.BOLD, 22));
-        graphics.drawString(_stringMessage.MensagemScore + score + "/200", 490, 30);
+        graphics.drawString(_stringMessage.MensagemScore + score + "/" + scorevalue, 490, 30);
 
         //paddle
         graphics.setColor(Color.white);
@@ -99,7 +103,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
             //above score hiding
             graphics.setColor(Color.black);
             graphics.setFont(new Font(_stringMessage.Font, Font.BOLD, 22));
-            graphics.drawString(_stringMessage.MensagemScore + score + "/200", 490, 30);
+            graphics.drawString(_stringMessage.MensagemScore + score + "/" + scorevalue, 490, 30);
 
             //hide remains bricks
             mapPlay.draw((Graphics2D) graphics, Color.BLACK);
@@ -175,11 +179,13 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
                 playerX = 310;
                 ballPosX = 290;
                 ballPosY = 350;
-                ballDirX = _intHelper.GetRandomNumberFor(-5);
-                ballDirY = _intHelper.GetRandomNumberFor(-3);
-                totalBricks = 40;
-
-                mapPlay = new MapGenerator(4, 10);
+                ballDirX = -15;
+                ballDirY = -9;
+                rows = generator.nextInt(10);
+                column = generator.nextInt(10);
+                mapPlay = new MapGenerator(rows,column);
+                totalBricks = rows * column;
+                scorevalue = totalBricks * 5;
                 score = 0;
 
                 repaint();
