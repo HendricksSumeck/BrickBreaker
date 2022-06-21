@@ -14,7 +14,7 @@ import javax.swing.Timer;
 
 public class GamePlay extends JPanel implements KeyListener, ActionListener {
 
-    public StringMessage _stringMessage;
+    private StringMessage _stringMessage = new StringMessage();
     private IntHelper _intHelper = new IntHelper();
     private boolean play = false;
     public int score = 0;
@@ -33,7 +33,6 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
     private MapGenerator mapPlay;
 
     public GamePlay() {
-        _stringMessage = new StringMessage();
 
         mapPlay = new MapGenerator(4, 10);
 

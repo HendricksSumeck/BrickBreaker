@@ -2,6 +2,7 @@ package birckbracker;
 
 public class StringMessage
 {
+    public final String GameName = "\"Brick Breaker\"";
     public final String Font  = "serif";
     public final String MensagemStart  = "Pressione enter para começar";
     public final String MensagemRestart  = "Pressione Enter para recomeçar.";
